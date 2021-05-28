@@ -1,0 +1,23 @@
+<mat-drawer-container class="main-container">
+    <mat-drawer #drawer [mode]="sideNavMode" opened="true"class="menu">
+        <mat-toolbar>
+            <span>Facturador</span>
+        </mat-toolbar>
+        <mat-selection-list  [multiple]="false">
+            <mat-list-option *ngFor="let sectionValue of sections" [value]="sectionValue">
+                {{sectionValue}}
+            </mat-list-option>
+        </mat-selection-list>
+    </mat-drawer>
+    <mat-drawer-content>
+      <mat-toolbar>
+        <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+            <mat-icon (click)="drawer.toggle()">menu</mat-icon>
+        </button>
+        <span>{{section}}</span>
+      </mat-toolbar>
+      <div class="main-content p-4">
+        <router-outlet></router-outlet>  
+      </div>
+    </mat-drawer-content>
+</mat-drawer-container>
