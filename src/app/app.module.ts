@@ -22,6 +22,9 @@ import { NewBudgetComponent } from './new-budget/new-budget.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import { ServicesComponent } from './services/services.component';
+import { HttpClientModule } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 
 @NgModule({
@@ -30,7 +33,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     HomeComponent,
     PageNotFoundComponent,
     BudgetsComponent,
-    NewBudgetComponent
+    NewBudgetComponent,
+    ServicesComponent
   ],
   imports: [
     BrowserModule,
@@ -49,9 +53,10 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     FormsModule,
     NgbModule,
     MatTableModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [{ provide: "BASE_API_URL", useValue: environment.apiUrl }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

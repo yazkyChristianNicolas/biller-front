@@ -4,8 +4,8 @@
             <span>Facturador</span>
         </mat-toolbar>
         <mat-selection-list  [multiple]="false">
-            <mat-list-option *ngFor="let sectionValue of sections" [value]="sectionValue">
-                {{sectionValue}}
+            <mat-list-option *ngFor="let sectionValue of sections" [value]="sectionValue" (click)="selectMenuOption(sectionValue)">
+                {{sectionValue.name}}
             </mat-list-option>
         </mat-selection-list>
     </mat-drawer>
